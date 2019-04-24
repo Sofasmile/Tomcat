@@ -12,9 +12,10 @@ import java.util.List;
 @Log4j
 public class StudentDaoImpl implements StudentDao {
     private static volatile StudentDaoImpl instance = null;
+    private final static String SELECT_ALL = "SELECT a FROM Student a";
 
     @Override
-    public void insertStudent(Student student) {
+    public void insert(Student student) {
         Session session = null;
         try {
             session = HibernateUtil.getSessionFactory().openSession();
@@ -29,7 +30,7 @@ public class StudentDaoImpl implements StudentDao {
     }
 
     @Override
-    public void updateStudent(Student student) {
+    public void update(Student student) {
         Session session = null;
         try {
             session = HibernateUtil.getSessionFactory().openSession();
@@ -44,7 +45,7 @@ public class StudentDaoImpl implements StudentDao {
     }
 
     @Override
-    public void deleteStudent(Long id) {
+    public void delete(Long id) {
         Session session = null;
         try {
             session = HibernateUtil.getSessionFactory().openSession();
@@ -60,7 +61,7 @@ public class StudentDaoImpl implements StudentDao {
     }
 
     @Override
-    public Student getByIdStudent(Long id) {
+    public Student getById(Long id) {
         Session session = null;
         Student student = null;
         try {
@@ -75,12 +76,12 @@ public class StudentDaoImpl implements StudentDao {
     }
 
     @Override
-    public List<Student> getAllStudents() {
+    public List<Student> getAll() {
         Session session = null;
         List students = new ArrayList<Student>();
         try {
             session = HibernateUtil.getSessionFactory().openSession();
-            students = session.createQuery("SELECT a FROM Student a", Student.class).getResultList();
+            students = session.createQuery(SELECT_ALL, Student.class).getResultList();
         } catch (Exception e) {
             log.error("Get all error: " + e.getMessage());
         } finally {
@@ -89,9 +90,13 @@ public class StudentDaoImpl implements StudentDao {
         return students;
     }
 
-    public static synchronized StudentDao getInstance() {
+    public static StudentDao getInstance() {
         if (instance == null) {
-            instance = new StudentDaoImpl();
+            synchronized (StudentDaoImpl.class) {
+                if (instance == null) {
+                    instance = new StudentDaoImpl();
+                }
+            }
         }
         return instance;
     }

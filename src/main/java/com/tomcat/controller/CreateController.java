@@ -34,11 +34,11 @@ public class CreateController extends HttpServlet {
                 .setCourse(course)
                 .setSpeciality(speciality);
         if (Objects.equals(studentId, null))
-            repository.insertStudent(student);
+            repository.insert(student);
         else {
             Long id = Long.parseLong(studentId);
             student.setId(id);
-            repository.updateStudent(student);
+            repository.update(student);
         }
         response.sendRedirect(request.getContextPath() + "/list");
     }

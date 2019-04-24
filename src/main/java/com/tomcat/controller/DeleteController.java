@@ -22,7 +22,7 @@ public class DeleteController extends HttpServlet {
             request.getRequestDispatcher("/list").forward(request, response);
         } else {
             Long id = Long.parseLong(studentId);
-            repository.deleteStudent(id);
+            repository.delete(id);
             response.sendRedirect(request.getContextPath() + "/list");
         }
     }

@@ -18,7 +18,7 @@ public class HomeController extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        List<Student> students = repository.getAllStudents();
+        List<Student> students = repository.getAll();
         request.setAttribute("studentsList", students);
         request.getRequestDispatcher("index.jsp").forward(request, response);
     }

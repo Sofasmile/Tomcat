@@ -5,13 +5,13 @@ import com.tomcat.entity.Student;
 import java.util.List;
 
 public interface StudentDao {
-    void insertStudent(Student student);
+    void insert(Student student);
 
-    void updateStudent(Student student);
+    void update(Student student);
 
-    void deleteStudent(Long id);
+    void delete(Long id);
 
-    Student getByIdStudent(Long id);
+    Student getById(Long id);
 
-    List<Student> getAllStudents();
+    List<Student> getAll();
 }

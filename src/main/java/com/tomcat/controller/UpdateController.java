@@ -23,7 +23,7 @@ public class UpdateController extends HttpServlet {
             request.getRequestDispatcher("/list").forward(request, response);
         else {
             Long id = Long.parseLong(userId);
-            Student student = repository.getByIdStudent(id);
+            Student student = repository.getById(id);
             request.setAttribute("student", student);
             request.getRequestDispatcher("/list").forward(request, response);
         }
