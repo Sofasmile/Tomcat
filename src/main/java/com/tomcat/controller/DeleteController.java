@@ -18,7 +18,7 @@ public class DeleteController extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String studentId = request.getParameter("id");
-        if (Objects.equals(studentId, null)) {
+        if (Objects.isNull(studentId)) {
             request.getRequestDispatcher("/list").forward(request, response);
         } else {
             Long id = Long.parseLong(studentId);

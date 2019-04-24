@@ -33,7 +33,7 @@ public class CreateController extends HttpServlet {
                 .setAge(age)
                 .setCourse(course)
                 .setSpeciality(speciality);
-        if (Objects.equals(studentId, null))
+        if (Objects.isNull(studentId))
             repository.insert(student);
         else {
             Long id = Long.parseLong(studentId);

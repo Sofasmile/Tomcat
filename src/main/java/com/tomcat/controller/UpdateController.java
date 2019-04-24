@@ -18,11 +18,11 @@ public class UpdateController extends HttpServlet {
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String userId = request.getParameter("id");
-        if (Objects.equals(userId, null))
+        String studentId = request.getParameter("id");
+        if (Objects.isNull(studentId))
             request.getRequestDispatcher("/list").forward(request, response);
         else {
-            Long id = Long.parseLong(userId);
+            Long id = Long.parseLong(studentId);
             Student student = repository.getById(id);
             request.setAttribute("student", student);
             request.getRequestDispatcher("/list").forward(request, response);
