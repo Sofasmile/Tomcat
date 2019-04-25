@@ -6,7 +6,7 @@ import com.tomcat.util.HibernateUtil;
 import lombok.extern.log4j.Log4j;
 import org.hibernate.Session;
 
-import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 @Log4j
@@ -63,31 +63,29 @@ public class StudentDaoImpl implements StudentDao {
     @Override
     public Student getById(Long id) {
         Session session = null;
-        Student student = null;
         try {
             session = HibernateUtil.getSessionFactory().openSession();
-            student = session.get(Student.class, id);
+            return session.get(Student.class, id);
         } catch (Exception e) {
             log.error("Get by id error: " + e.getMessage());
+            return new Student();
         } finally {
             session.close();
         }
-        return student;
     }
 
     @Override
     public List<Student> getAll() {
         Session session = null;
-        List students = new ArrayList<Student>();
         try {
             session = HibernateUtil.getSessionFactory().openSession();
-            students = session.createQuery(SELECT_ALL, Student.class).getResultList();
+            return session.createQuery(SELECT_ALL, Student.class).getResultList();
         } catch (Exception e) {
             log.error("Get all error: " + e.getMessage());
+            return Collections.emptyList();
         } finally {
             session.close();
         }
-        return students;
     }
 
     public static StudentDao getInstance() {
