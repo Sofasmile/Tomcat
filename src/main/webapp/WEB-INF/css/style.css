@@ -1,0 +1,130 @@
+.main {
+    width: 100%;
+    border-spacing: 0;
+    padding: 5px;
+    text-align: center;
+}
+
+.main-td {
+    width: 50%;
+    vertical-align: top;
+}
+
+.table_2 {
+    margin: auto;
+    width: 90%;
+    border-collapse: collapse;
+    border-left: 3px solid #98e698;
+    border-right: 3px solid #98e698;
+    border-bottom: 3px solid #98e698;
+    font-family: "Lucida Grande", sans-serif;
+}
+
+.table_2 caption {
+    background: #98e698;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    padding: 10px;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .3);
+    color: white;
+    font-family: "Roboto Slab", serif;
+    font-style: normal;
+    font-size: 26px;
+    text-align: center;
+    margin: 0;
+}
+
+.table_2 td, .table_2 th {
+    padding: 10px;
+}
+
+.table_2 th {
+    text-align: left;
+    font-size: 18px;
+}
+
+.table_2 tr:nth-child(2n) {
+    background: #eff5f5;
+}
+
+.table_2 td:last-of-type {
+    text-align: center;
+}
+
+.button-delete {
+    display: inline-block;
+    padding: 5px 10px;
+    background: #ff9933;
+    box-shadow: 2px 2px 0 0 #a22800;
+    position: relative;
+}
+
+.button-delete:hover {
+    box-shadow: none;
+    top: 2px;
+    left: 2px;
+}
+
+.table_1 {
+    margin: auto;
+    width: 90%;
+    border-left: 3px solid #98e698;
+    border-right: 3px solid #98e698;
+    border-bottom: 3px solid #98e698;
+    font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+    font-size: 14px;
+    border-collapse: collapse;
+    text-align: center;
+}
+
+.table_1 caption {
+    background: #98e698;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    padding: 10px;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .3);
+    color: white;
+    font-family: "Roboto Slab", serif;
+    font-style: normal;
+    font-size: 26px;
+    text-align: center;
+    margin: 0;
+}
+
+.table_1 th, .table_1 td:first-child {
+    background: #b3ffb3;
+    color: black;
+    padding: 10px 20px;
+}
+
+.table_1 th, .table_1 td {
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    border-color: white;
+}
+
+.table_1 td {
+    background: #eff5f5;
+}
+
+.table_1 th:first-child, .table_1 td:first-child {
+    text-align: left;
+}
+
+input[type=text], input[type=number] {
+    width: 80%;
+}
+
+.button {
+    display: inline-block;
+    padding: 5px 10px;
+    background: #98e698;
+    box-shadow: 2px 2px 0 0 #a22800;
+    position: relative;
+}
+
+.button:hover {
+    box-shadow: none;
+    top: 2px;
+    left: 2px;
+}
